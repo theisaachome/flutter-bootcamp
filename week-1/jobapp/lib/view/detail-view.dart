@@ -11,69 +11,103 @@ class JobDetailView extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.transparent,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30), color: Colors.white),
-        child: Column(
+      bottomSheet: Container(
+        height: 50,
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Container(
-              width: 70,
-              height: 10,
-              color: Colors.green,
+            Icon(
+              Icons.favorite_border,
+              color: Colors.red,
             ),
             Container(
-              margin: EdgeInsets.all(32),
-              child: Text(
-                "Google",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 30),
+              padding: EdgeInsets.symmetric(horizontal: 42, vertical: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.red),
+              child: Center(
+                child: Text(
+                  "Apply Now",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Product Designer",
-                style: TextStyle(
-                    letterSpacing: 1,
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50), color: Colors.white),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 80,
+                height: 5,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(10)),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Text(
-                "New Yokr, NY",
-                style:
-                    TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+              Container(
+                margin: EdgeInsets.all(32),
+                child: Text(
+                  "Google",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 30),
+                ),
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                  decoration: BoxDecoration(
-                      color: Colors.blueGrey.shade50,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Center(
-                    child: Text(
-                      "Part-Time",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Product Designer",
+                  style: TextStyle(
+                      letterSpacing: 1,
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  "New Yokr, NY",
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    decoration: BoxDecoration(
+                        color: Colors.blueGrey.shade50,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Center(
+                      child: Text(
+                        "Part-Time",
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
-                ),
-                Text(
-                  "\$60/h",
-                  style: TextStyle(fontSize: 28),
-                )
-              ],
-            ),
-            Container(
-                margin: EdgeInsets.all(32), child: descritionWidge(context))
-          ],
+                  SizedBox(
+                    width: 24,
+                  ),
+                  Text(
+                    "\$60/h",
+                    style: TextStyle(fontSize: 28),
+                  )
+                ],
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+                  child: descritionWidge(context)),
+            ],
+          ),
         ),
       ),
     );
@@ -83,9 +117,15 @@ class JobDetailView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          "Requirements",
-          style: TextStyle(fontWeight: FontWeight.bold),
+        Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Text(
+            "Requirements",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 30,
         ),
         Container(
           height: 300,
@@ -95,19 +135,22 @@ class JobDetailView extends StatelessWidget {
                 List<String> desc = getDescription();
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 10),
-                      width: 10,
-                      height: 10,
+                      width: 8,
+                      height: 8,
                       decoration: BoxDecoration(
                           color: Colors.amber, shape: BoxShape.circle),
                     ),
                     Expanded(
-                      child: Text(
-                        desc[index],
-                        softWrap: true,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          desc[index],
+                          softWrap: true,
+                        ),
                       ),
                     )
                   ],
