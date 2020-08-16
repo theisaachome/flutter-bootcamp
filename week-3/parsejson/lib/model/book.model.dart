@@ -38,7 +38,8 @@ class Book {
     data['author'] = this.author;
     data['releaseDate'] = this.releaseDate;
     if (this.bookFormat != null) {
-      data['bookFormat'] = this.bookFormat.map((v) => v.toJson()).toList();
+      data['bookFormat'] =
+       this.bookFormat.map((bf) => bf.toJson()).toList();
     }
     data['imageUrl'] = this.imageUrl;
     data['description'] = this.description;
